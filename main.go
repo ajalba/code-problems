@@ -1,7 +1,7 @@
 package main
 
 func main() {
-
 	stack := Stack{}
-	stack.Push(1)
+	stack.Push(10)
+
 }
