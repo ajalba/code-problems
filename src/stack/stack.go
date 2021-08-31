@@ -7,13 +7,13 @@ type element struct {
 	next *element
 }
 
-type stack struct {
+type Stack struct {
 	lock *sync.Mutex
 	head *element
 	Size int
 }
 
-func (stk *stack) Push(data interface{}) {
+func (stk *Stack) Push(data interface{}) {
 	stk.lock.Lock()
 
 	element := new(element)
@@ -25,7 +25,7 @@ func (stk *stack) Push(data interface{}) {
 
 	stk.lock.Unlock()
 }
-func (stk *stack) Pop() interface{} {
+func (stk *Stack) Pop() interface{} {
 	if stk.head == nil {
 		return nil
 	}
@@ -39,8 +39,8 @@ func (stk *stack) Pop() interface{} {
 	return r
 }
 
-func New() *stack {
-	stk := new(stack)
+func New() *Stack {
+	stk := new(Stack)
 	stk.lock = &sync.Mutex{}
 
 	return stk
