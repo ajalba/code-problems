@@ -39,6 +39,10 @@ func (stk *Stack) Pop() interface{} {
 	return r
 }
 
+func (stk *Stack) IsEmpty() bool {
+
+	return stk.head == nil
+}
 func New() *Stack {
 	stk := new(Stack)
 	stk.lock = &sync.Mutex{}
